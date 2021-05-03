@@ -1,0 +1,6 @@
+﻿{
+  "DataConnectionString": "Data Source=MSI\\SQLEXPRESS;Initial Catalog=master;Integrated Security=True;Persist Security Info=False",
+  "DataProvider": "sqlserver",
+  "SQLCommandTimeout": null,
+  "RawDataSettings": {}
+}
