@@ -1584,8 +1584,8 @@ namespace Nop.Services.Orders
                 if (processPaymentResult.Success)
                 {
                     var order = await SaveOrderDetailsAsync(processPaymentRequest, processPaymentResult, details);
+                    order.EthereumAddress = processPaymentRequest.EthereumAddress;
                     result.PlacedOrder = order;
-
                     //move shopping cart items to order items
                     await MoveShoppingCartItemsToOrderItemsAsync(details, order);
 

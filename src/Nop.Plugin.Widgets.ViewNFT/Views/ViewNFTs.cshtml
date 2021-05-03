@@ -1,0 +1,53 @@
+﻿@model NFTEnumerable
+@using Microsoft.AspNetCore.Http
+@using Nop.Plugin.Widget.ViewNFT.Models
+@inject IHttpContextAccessor _httpContextAccessor
+
+@{
+    Layout = "_ColumnsOne";
+}
+
+@{
+    bool hasConnectedWallet = _httpContextAccessor.HttpContext.Session.GetString("Address") != null;
+}
+
+@*<div class="page account-page">*@
+    @{ if (hasConnectedWallet)
+        {
+            <div>
+                <h1 class="h1">Your NFT's</h1>
+                <ul class="list-group">
+                </ul>
+
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col">Token ID</th>
+                            <th scope="col">URI</th>
+                            <th scope="col">Preview</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var nft in Model.OwnedTokens)
+                        {
+                            var id = nft.TokenId;
+                            var uri = nft.URI;
+                            <tr>
+                                <th scope="row">@id</th>
+                                <td>@uri</td>
+                                <td><img src="@uri" width="150" height="150" /></td>
+                            </tr>
+                            }
+                    </tbody>
+                </table>
+            </div>
+        }
+        else
+        {
+            <div class="container position:fixed">
+                @Html.Partial("SelectAccount.cshtml");
+            </div>
+        }
+    }
+
+@*</div>*@

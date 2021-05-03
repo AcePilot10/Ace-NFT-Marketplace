@@ -303,7 +303,10 @@ function ToggleSearchBlockAndSavePreferences() {
 }
 
 function ensureDataTablesRendered() {
-  $.fn.dataTable.tables({ visible: true, api: true }).columns.adjust();
+  //$.fn.dataTable.tables({ visible: true, api: true }).columns.adjust();
+    $.fn.dataTable
+        .tables({ visible: true, api: true })
+        .columns.adjust();
 }
 
 function reloadAllDataTables(itemCount) {

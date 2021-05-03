@@ -334,5 +334,7 @@ namespace Nop.Core.Domain.Orders
         }
 
         #endregion
+
+        public string EthereumAddress { get; set; }
     }
 }

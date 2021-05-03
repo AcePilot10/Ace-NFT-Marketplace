@@ -1,0 +1,11 @@
+﻿{
+  "Group": "Widgets",
+  "FriendlyName": "View NFTs",
+  "SystemName": "Widgets.ViewNFT",
+  "Version": "1.0",
+  "SupportedVersions": [ "4.40" ],
+  "Author": "Cody Gordon",
+  "DisplayOrder": 1,
+  "FileName": "Nop.Plugin.Widgets.ViewNFT.dll",
+  "Description": "Creates View NFT widget"
+}

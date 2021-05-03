@@ -69,7 +69,7 @@
             <span asp-validation-for="Price"></span>
         </div>
     </div>
-    <div class="form-group row @(Model.ProductEditorSettingsModel.OldPrice ? null : "advanced-setting")">
+    @*<div class="form-group row @(Model.ProductEditorSettingsModel.OldPrice ? null : "advanced-setting")">
         <div class="col-md-3">
             <nop-label asp-for="OldPrice" />
         </div>
@@ -77,8 +77,8 @@
             <nop-editor asp-for="OldPrice" asp-postfix="@Model.PrimaryStoreCurrencyCode" />
             <span asp-validation-for="OldPrice"></span>
         </div>
-    </div>
-    <div class="form-group row @(Model.ProductEditorSettingsModel.ProductCost ? null : "advanced-setting")">
+    </div>*@
+    @*<div class="form-group row @(Model.ProductEditorSettingsModel.ProductCost ? null : "advanced-setting")">
         <div class="col-md-3">
             <nop-label asp-for="ProductCost" />
         </div>
@@ -86,8 +86,8 @@
             <nop-editor asp-for="ProductCost" asp-postfix="@Model.PrimaryStoreCurrencyCode" />
             <span asp-validation-for="ProductCost"></span>
         </div>
-    </div>
-    <div class="form-group row @(Model.ProductEditorSettingsModel.DisableBuyButton ? null : "advanced-setting")">
+    </div>*@
+    @*<div class="form-group row @(Model.ProductEditorSettingsModel.DisableBuyButton ? null : "advanced-setting")">
         <div class="col-md-3">
             <nop-label asp-for="DisableBuyButton" />
         </div>
@@ -359,5 +359,5 @@
                 @T("Admin.Catalog.Products.TierPrices.SaveBeforeEdit")
             </div>
         }
-    </div>
+    </div>*@
 </div>

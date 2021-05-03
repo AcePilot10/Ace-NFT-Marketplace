@@ -1,0 +1,49 @@
+﻿@model Nop.Plugin.Misc.TransferNFT.Models.NFTEnumerable
+@using Nop.Core
+@using Nop.Web.Framework.UI
+@inject Nop.Core.IWebHelper webHelper
+
+@{
+    Layout = "_ColumnsTwo";
+
+    //title
+    Html.AddTitleParts(T("PageTitle.Account").Text);
+    //page class
+    Html.AppendPageCssClassParts("html-account-page");
+    Html.AppendPageCssClassParts("html-customer-info-page");
+}
+
+@section left
+    {
+    @await Component.InvokeAsync("CustomerNavigation", new { selectedTabId = 150 });
+}
+
+<div class="page account-page">
+
+    <h1 class="h1">Your NFT's</h1>
+    <ul class="list-group">
+    </ul>
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">Token ID</th>
+                <th scope="col">URI</th>
+                <th scope="col">Preview</th>
+            </tr>
+        </thead>
+        @foreach (var nft in Model.OwnedTokens)
+        {
+            var id = nft.TokenId;
+            var uri = nft.URI;
+            <tbody>
+                <tr>
+                    <td scope="col">@id</td>
+                    <td scope="col">@uri</td>
+                    <td><img src="@uri" width="300" height="300" /></td>
+                </tr>
+            </tbody>
+        }
+    </table>
+
+</div>

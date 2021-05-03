@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Nop.Core.Domain.Catalog;
 using Nop.Web.Areas.Admin.Models.Settings;
 using Nop.Web.Framework.Models;
 using Nop.Web.Framework.Mvc.ModelBinding;
@@ -73,7 +74,7 @@ namespace Nop.Web.Areas.Admin.Models.Catalog
         public string PictureThumbnailUrl { get; set; }
 
         [NopResourceDisplayName("Admin.Catalog.Products.Fields.ProductType")]
-        public int ProductTypeId { get; set; }
+        public int ProductTypeId { get; set; } = (int)ProductType.SimpleProduct;
 
         [NopResourceDisplayName("Admin.Catalog.Products.Fields.ProductType")]
         public string ProductTypeName { get; set; }
@@ -85,7 +86,7 @@ namespace Nop.Web.Areas.Admin.Models.Catalog
         public string AssociatedToProductName { get; set; }
 
         [NopResourceDisplayName("Admin.Catalog.Products.Fields.VisibleIndividually")]
-        public bool VisibleIndividually { get; set; }
+        public bool VisibleIndividually { get; set; } = true;
 
         [NopResourceDisplayName("Admin.Catalog.Products.Fields.ProductTemplate")]
         public int ProductTemplateId { get; set; }
@@ -107,7 +108,7 @@ namespace Nop.Web.Areas.Admin.Models.Catalog
         public string AdminComment { get; set; }
 
         [NopResourceDisplayName("Admin.Catalog.Products.Fields.ShowOnHomepage")]
-        public bool ShowOnHomepage { get; set; }
+        public bool ShowOnHomepage { get; set; } 
 
         [NopResourceDisplayName("Admin.Catalog.Products.Fields.MetaKeywords")]
         public string MetaKeywords { get; set; }
@@ -122,7 +123,7 @@ namespace Nop.Web.Areas.Admin.Models.Catalog
         public string SeName { get; set; }
 
         [NopResourceDisplayName("Admin.Catalog.Products.Fields.AllowCustomerReviews")]
-        public bool AllowCustomerReviews { get; set; }
+        public bool AllowCustomerReviews { get; set; } = false;
 
         [NopResourceDisplayName("Admin.Catalog.Products.Fields.ProductTags")]
         public string ProductTags { get; set; }
@@ -158,14 +159,17 @@ namespace Nop.Web.Areas.Admin.Models.Catalog
         public bool AutomaticallyAddRequiredProducts { get; set; }
 
         [NopResourceDisplayName("Admin.Catalog.Products.Fields.IsDownload")]
-        public bool IsDownload { get; set; }
+
+        //[NopResourceDisplayName("Admin.Product.Download.NFT")]
+        public bool IsDownload { get; set; } = true;
 
         [NopResourceDisplayName("Admin.Catalog.Products.Fields.Download")]
+        //[NopResourceDisplayName("Upload NFT File")]
         [UIHint("Download")]
         public int DownloadId { get; set; }
 
         [NopResourceDisplayName("Admin.Catalog.Products.Fields.UnlimitedDownloads")]
-        public bool UnlimitedDownloads { get; set; }
+        public bool UnlimitedDownloads { get; set; } = true;
 
         [NopResourceDisplayName("Admin.Catalog.Products.Fields.MaxNumberOfDownloads")]
         public int MaxNumberOfDownloads { get; set; }
@@ -212,7 +216,7 @@ namespace Nop.Web.Areas.Admin.Models.Catalog
         public int RentalPricePeriodId { get; set; }
 
         [NopResourceDisplayName("Admin.Catalog.Products.Fields.IsShipEnabled")]
-        public bool IsShipEnabled { get; set; }
+        public bool IsShipEnabled { get; set; } = false;
 
         [NopResourceDisplayName("Admin.Catalog.Products.Fields.IsFreeShipping")]
         public bool IsFreeShipping { get; set; }
@@ -260,10 +264,10 @@ namespace Nop.Web.Areas.Admin.Models.Catalog
         public string StockQuantityStr { get; set; }
 
         [NopResourceDisplayName("Admin.Catalog.Products.Fields.DisplayStockAvailability")]
-        public bool DisplayStockAvailability { get; set; }
+        public bool DisplayStockAvailability { get; set; } = true;
 
         [NopResourceDisplayName("Admin.Catalog.Products.Fields.DisplayStockQuantity")]
-        public bool DisplayStockQuantity { get; set; }
+        public bool DisplayStockQuantity { get; set; } = false;
 
         [NopResourceDisplayName("Admin.Catalog.Products.Fields.MinStockQuantity")]
         public int MinStockQuantity { get; set; }
@@ -278,13 +282,13 @@ namespace Nop.Web.Areas.Admin.Models.Catalog
         public int BackorderModeId { get; set; }
 
         [NopResourceDisplayName("Admin.Catalog.Products.Fields.AllowBackInStockSubscriptions")]
-        public bool AllowBackInStockSubscriptions { get; set; }
+        public bool AllowBackInStockSubscriptions { get; set; } = false;
 
         [NopResourceDisplayName("Admin.Catalog.Products.Fields.OrderMinimumQuantity")]
         public int OrderMinimumQuantity { get; set; }
 
         [NopResourceDisplayName("Admin.Catalog.Products.Fields.OrderMaximumQuantity")]
-        public int OrderMaximumQuantity { get; set; }
+        public int OrderMaximumQuantity { get; set; } 
 
         [NopResourceDisplayName("Admin.Catalog.Products.Fields.AllowedQuantities")]
         public string AllowedQuantities { get; set; }
@@ -293,23 +297,23 @@ namespace Nop.Web.Areas.Admin.Models.Catalog
         public bool AllowAddingOnlyExistingAttributeCombinations { get; set; }
 
         [NopResourceDisplayName("Admin.Catalog.Products.Fields.NotReturnable")]
-        public bool NotReturnable { get; set; }
+        public bool NotReturnable { get; set; } = true;
 
         [NopResourceDisplayName("Admin.Catalog.Products.Fields.DisableBuyButton")]
         public bool DisableBuyButton { get; set; }
 
         [NopResourceDisplayName("Admin.Catalog.Products.Fields.DisableWishlistButton")]
-        public bool DisableWishlistButton { get; set; }
+        public bool DisableWishlistButton { get; set; } = false;
 
         [NopResourceDisplayName("Admin.Catalog.Products.Fields.AvailableForPreOrder")]
-        public bool AvailableForPreOrder { get; set; }
+        public bool AvailableForPreOrder { get; set; } = false;
 
         [NopResourceDisplayName("Admin.Catalog.Products.Fields.PreOrderAvailabilityStartDateTimeUtc")]
         [UIHint("DateTimeNullable")]
         public DateTime? PreOrderAvailabilityStartDateTimeUtc { get; set; }
 
         [NopResourceDisplayName("Admin.Catalog.Products.Fields.CallForPrice")]
-        public bool CallForPrice { get; set; }
+        public bool CallForPrice { get; set; } = false;
 
         [NopResourceDisplayName("Admin.Catalog.Products.Fields.Price")]
         public decimal Price { get; set; }
@@ -381,7 +385,7 @@ namespace Nop.Web.Areas.Admin.Models.Catalog
         public int DisplayOrder { get; set; }
 
         [NopResourceDisplayName("Admin.Catalog.Products.Fields.Published")]
-        public bool Published { get; set; }
+        public bool Published { get; set; } = true;
 
         public string PrimaryStoreCurrencyCode { get; set; }
 

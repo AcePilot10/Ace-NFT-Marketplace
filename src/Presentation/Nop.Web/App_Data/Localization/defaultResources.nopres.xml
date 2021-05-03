@@ -19395,4 +19395,8 @@
   <LocaleResource Name="Wishlist.YourWishlistURL">
     <Value>Your wishlist URL for sharing</Value>
   </LocaleResource>
+	<!--Custom-->
+  <LocaleResource Name="Admin.Product.Download.NFT">
+	<Value>NFT File</Value>
+  </LocaleResource>
 </Language>

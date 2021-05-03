@@ -204,6 +204,7 @@ namespace Nop.Web.Factories
         {
             if (order == null)
                 throw new ArgumentNullException(nameof(order));
+
             var model = new OrderDetailsModel
             {
                 Id = order.Id,

@@ -38,29 +38,29 @@
                 $('#pnlSampleDownloadFile').hideElement();
             }
         } else {
-            $('#pnlDownloadFile').hideElement();
+            @*$('#pnlDownloadFile').hideElement();
             $('#pnlUnlimitedDownloads').hideElement();
             $('#pnlMaxNumberOfDownloads').hideElement();
             $('#pnlDownloadExpirationDays').hideElement();
             $('#pnlDownloadActivationType').hideElement();
             $('#pnlHasUserAgreement').hideElement();
             $('#pnlUserAgreementText').hideElement();
-            $('#pnlHasSampleDownload').hideElement();
-            $('#pnlSampleDownloadFile').hideElement();
+            $('#pnlHasSampleDownload').hideElement();*@
+            @*$('#pnlSampleDownloadFile').hideElement();*@
         }
     }
 </script>
 
 <div class="card-body">
-    <div class="form-group row">
+    @*<div class="form-group row">
         <div class="col-md-3">
-            <nop-label asp-for="IsDownload" />
+            <nop-label>NFT Download</nop-label>
         </div>
         <div class="col-md-9">
             <nop-editor asp-for="IsDownload" />
             <span asp-validation-for="IsDownload"></span>
         </div>
-    </div>
+    </div>*@
     <nop-nested-setting asp-for="IsDownload">
         <div class="form-group row" id="pnlDownloadFile">
             <div class="col-md-3">
@@ -71,7 +71,7 @@
                 <span asp-validation-for="DownloadId"></span>
             </div>
         </div>
-        <div class="form-group row" id="pnlUnlimitedDownloads">
+        @*<div class="form-group row" id="pnlUnlimitedDownloads">
             <div class="col-md-3">
                 <nop-label asp-for="UnlimitedDownloads" />
             </div>
@@ -79,8 +79,8 @@
                 <nop-editor asp-for="UnlimitedDownloads" />
                 <span asp-validation-for="UnlimitedDownloads"></span>
             </div>
-        </div>
-        <div class="form-group row" id="pnlMaxNumberOfDownloads">
+        </div>*@
+        @*<div class="form-group row" id="pnlMaxNumberOfDownloads">
             <div class="col-md-3">
                 <nop-label asp-for="MaxNumberOfDownloads" />
             </div>
@@ -88,8 +88,8 @@
                 <nop-editor asp-for="MaxNumberOfDownloads" />
                 <span asp-validation-for="MaxNumberOfDownloads"></span>
             </div>
-        </div>
-        <div class="form-group row" id="pnlDownloadExpirationDays">
+        </div>*@
+        @*<div class="form-group row" id="pnlDownloadExpirationDays">
             <div class="col-md-3">
                 <nop-label asp-for="DownloadExpirationDays" />
             </div>
@@ -97,8 +97,8 @@
                 <nop-editor asp-for="DownloadExpirationDays" />
                 <span asp-validation-for="DownloadExpirationDays"></span>
             </div>
-        </div>
-        <div class="form-group row" id="pnlDownloadActivationType">
+        </div>*@
+        @*<div class="form-group row" id="pnlDownloadActivationType">
             <div class="col-md-3">
                 <nop-label asp-for="DownloadActivationTypeId" />
             </div>
@@ -124,8 +124,8 @@
                 <nop-textarea asp-for="UserAgreementText" />
                 <span asp-validation-for="UserAgreementText"></span>
             </div>
-        </div>
-        <div class="form-group row" id="pnlHasSampleDownload">
+        </div>*@
+        @*<div class="form-group row" id="pnlHasSampleDownload">
             <div class="col-md-3">
                 <nop-label asp-for="HasSampleDownload" />
             </div>
@@ -144,6 +144,6 @@
                     <span asp-validation-for="SampleDownloadId"></span>
                 </div>
             </div>
-        </nop-nested-setting>
+        </nop-nested-setting>*@
     </nop-nested-setting>
 </div>

@@ -34,7 +34,16 @@ namespace Nop.Web
         /// <param name="services">Collection of service descriptors</param>
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddSession(options =>
+            {
+                //options.IdleTimeout = TimeSpan.FromSeconds(10);
+                //options.Cookie.HttpOnly = true;
+                options.Cookie.IsEssential = true;
+            });
+            Nop.Web.Framework.Infrastructure.Extensions.ServiceCollectionExtensions.AddHttpContextAccessor(services);
             services.ConfigureApplicationServices(_configuration, _webHostEnvironment);
+            services.AddDistributedMemoryCache();
+            //services.AddHttpContextAccessor();
         }
 
         /// <summary>
@@ -44,6 +53,7 @@ namespace Nop.Web
         public void Configure(IApplicationBuilder application)
         {
             application.ConfigureRequestPipeline();
+            application.UseSession();
             application.StartEngine();
         }
     }

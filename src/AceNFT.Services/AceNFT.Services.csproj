@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Flurl" Version="3.0.1" />
+		<PackageReference Include="Flurl.Http" Version="3.0.1" />
+		<PackageReference Include="Nethereum.ABI" Version="3.8.0" />
+		<PackageReference Include="Nethereum.Accounts" Version="3.8.0" />
+		<PackageReference Include="Nethereum.Contracts" Version="3.8.0" />
+		<PackageReference Include="Nethereum.JsonRpc.RpcClient" Version="3.8.0" />
+		<PackageReference Include="Nethereum.RPC" Version="3.8.0" />
+		<PackageReference Include="Nethereum.Web3" Version="3.8.0" />
+		<PackageReference Include="Pinata.Client" Version="1.0.0" />
+	</ItemGroup>
+
+</Project>

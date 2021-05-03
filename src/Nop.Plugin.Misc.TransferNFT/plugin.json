@@ -1,0 +1,11 @@
+﻿{
+  "Group": "Misc",
+  "FriendlyName": "TransferNFT",
+  "SystemName": "Misc.TransferNFT",
+  "Version": "1.1",
+  "SupportedVersions": [ "4.40" ],
+  "Author": "Cody Gordon",
+  "DisplayOrder": 1,
+  "FileName": "Nop.Plugin.Misc.TransferNFT.dll",
+  "Description": "This plugin transfers an NFT on purchase"
+}

@@ -1071,6 +1071,12 @@ namespace Nop.Web.Controllers
             if (await _customerService.IsGuestAsync(await _workContext.GetCurrentCustomerAsync()) && !_orderSettings.AnonymousCheckoutAllowed)
                 return Challenge();
 
+            if (!HttpContext.Session.Keys.Contains("Address"))
+            {
+                Console.WriteLine("User attempted to checkout without selecting ethereum account");
+                return RedirectToRoute("ShoppingCart");
+            }
+
             //model
             var model = await _checkoutModelFactory.PrepareConfirmOrderModelAsync(cart);
             return View(model);
@@ -1093,6 +1099,12 @@ namespace Nop.Web.Controllers
 
             if (await _customerService.IsGuestAsync(await _workContext.GetCurrentCustomerAsync()) && !_orderSettings.AnonymousCheckoutAllowed)
                 return Challenge();
+
+            //if (!TempData.ContainsKey("Address"))
+            //{
+            //    Console.WriteLine("User attempted to checkout without selecting ethereum account");
+            //    return RedirectToRoute("ShoppingCart");
+            //}
 
             //model
             var model = await _checkoutModelFactory.PrepareConfirmOrderModelAsync(cart);
@@ -1802,6 +1814,12 @@ namespace Nop.Web.Controllers
                 if (await _customerService.IsGuestAsync(await _workContext.GetCurrentCustomerAsync()) && !_orderSettings.AnonymousCheckoutAllowed)
                     throw new Exception("Anonymous checkout is not allowed");
 
+                //if (!TempData.ContainsKey("Address"))
+                //{
+                //    Console.WriteLine("User attempted to checkout without selecting ethereum account");
+                //    return RedirectToRoute("ShoppingCart");
+                //}
+
                 //prevent 2 orders being placed within an X seconds time frame
                 if (!await IsMinimumOrderPlacementIntervalValidAsync(await _workContext.GetCurrentCustomerAsync()))
                     throw new Exception(await _localizationService.GetResourceAsync("Checkout.MinOrderPlacementInterval"));
@@ -1821,6 +1839,7 @@ namespace Nop.Web.Controllers
                 _paymentService.GenerateOrderGuid(processPaymentRequest);
                 processPaymentRequest.StoreId = (await _storeContext.GetCurrentStoreAsync()).Id;
                 processPaymentRequest.CustomerId = (await _workContext.GetCurrentCustomerAsync()).Id;
+                processPaymentRequest.EthereumAddress = HttpContext.Session.GetString("Address");
                 processPaymentRequest.PaymentMethodSystemName = await _genericAttributeService.GetAttributeAsync<string>(await _workContext.GetCurrentCustomerAsync(),
                     NopCustomerDefaults.SelectedPaymentMethodAttribute, (await _storeContext.GetCurrentStoreAsync()).Id);
                 HttpContext.Session.Set<ProcessPaymentRequest>("OrderPaymentInfo", processPaymentRequest);
