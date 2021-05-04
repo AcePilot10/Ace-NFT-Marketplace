@@ -1144,6 +1144,8 @@ namespace Nop.Web.Controllers
 
         public virtual async Task<IActionResult> Cart()
         {
+            if (!HttpContext.Session.Keys.Contains("Address"))
+                return RedirectToAction("SelectAccount", "TransferNFT");
             if (!await _permissionService.AuthorizeAsync(StandardPermissionProvider.EnableShoppingCart))
                 return RedirectToRoute("Homepage");
 

@@ -50,12 +50,6 @@
 	  <None Update="plugin.json">
 	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 	  </None>
-	  <None Update="web\js\example.js">
-	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-	  </None>
-	  <None Update="web\js\walletconnect.js">
-	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-	  </None>
 	</ItemGroup>
 	<ItemGroup>
 	  <PackageReference Include="Coinbase" Version="6.0.1" />

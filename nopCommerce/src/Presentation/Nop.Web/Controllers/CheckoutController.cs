@@ -1814,11 +1814,12 @@ namespace Nop.Web.Controllers
                 if (await _customerService.IsGuestAsync(await _workContext.GetCurrentCustomerAsync()) && !_orderSettings.AnonymousCheckoutAllowed)
                     throw new Exception("Anonymous checkout is not allowed");
 
-                //if (!TempData.ContainsKey("Address"))
-                //{
-                //    Console.WriteLine("User attempted to checkout without selecting ethereum account");
-                //    return RedirectToRoute("ShoppingCart");
-                //}
+                if (!HttpContext.Session.Keys.Contains("Address"))
+                {
+                    //Console.WriteLine("User attempted to checkout without selecting ethereum account");
+                    //return RedirectToRoute("ShoppingCart");
+                    throw new Exception("Please connect your ethereum wallet before checking out!");
+                }
 
                 //prevent 2 orders being placed within an X seconds time frame
                 if (!await IsMinimumOrderPlacementIntervalValidAsync(await _workContext.GetCurrentCustomerAsync()))

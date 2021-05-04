@@ -242,7 +242,7 @@ namespace Nop.Web.Areas.Admin.Models.Catalog
         public bool IsTelecommunicationsOrBroadcastingOrElectronicServices { get; set; }
 
         [NopResourceDisplayName("Admin.Catalog.Products.Fields.ManageInventoryMethod")]
-        public int ManageInventoryMethodId { get; set; }
+        public int ManageInventoryMethodId { get; set; } = (int)ManageInventoryMethod.DontManageStock;
 
         [NopResourceDisplayName("Admin.Catalog.Products.Fields.ProductAvailabilityRange")]
         public int ProductAvailabilityRangeId { get; set; }
@@ -256,7 +256,7 @@ namespace Nop.Web.Areas.Admin.Models.Catalog
         public IList<SelectListItem> AvailableWarehouses { get; set; }
 
         [NopResourceDisplayName("Admin.Catalog.Products.Fields.StockQuantity")]
-        public int StockQuantity { get; set; }
+        public int StockQuantity { get; set; } = 1;
 
         public int LastStockQuantity { get; set; }
 
@@ -285,10 +285,10 @@ namespace Nop.Web.Areas.Admin.Models.Catalog
         public bool AllowBackInStockSubscriptions { get; set; } = false;
 
         [NopResourceDisplayName("Admin.Catalog.Products.Fields.OrderMinimumQuantity")]
-        public int OrderMinimumQuantity { get; set; }
+        public int OrderMinimumQuantity { get; set; } = 1;
 
         [NopResourceDisplayName("Admin.Catalog.Products.Fields.OrderMaximumQuantity")]
-        public int OrderMaximumQuantity { get; set; } 
+        public int OrderMaximumQuantity { get; set; } = 1;
 
         [NopResourceDisplayName("Admin.Catalog.Products.Fields.AllowedQuantities")]
         public string AllowedQuantities { get; set; }

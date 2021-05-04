@@ -1,1 +1,2 @@
 truffle migrate
+cmd /k

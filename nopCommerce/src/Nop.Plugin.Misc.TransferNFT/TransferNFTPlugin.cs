@@ -87,8 +87,8 @@ namespace Nop.Plugin.Misc.TransferNFT
         public Task<IList<string>> GetWidgetZonesAsync()
         {
             //return Task.FromResult<IList<string>>(new List<string> { PublicWidgetZones.OpcContentBefore, AdminWidgetZones.ProductDetailsBlock });
-            return Task.FromResult<IList<string>>(new List<string> 
-            { PublicWidgetZones.OpcContentBefore });
+            return Task.FromResult<IList<string>>(new List<string> { }); 
+            //{ PublicWidgetZones.OpcContentAfter });
         }
 
         public string GetWidgetViewComponentName(string widgetZone)
