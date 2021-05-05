@@ -23,7 +23,7 @@ using System.Threading.Tasks;
 
 namespace Nop.Plugin.Misc.TransferNFT
 {
-    public class TransferNFTPlugin : BasePlugin, IConsumer<OrderPaidEvent>, IWidgetPlugin
+    public class TransferNFTPlugin : BasePlugin, IConsumer<OrderPaidEvent>
     {
         #region Fields
         private readonly IWebHelper _webHelper;
@@ -84,17 +84,17 @@ namespace Nop.Plugin.Misc.TransferNFT
             return Task.CompletedTask;
         }
 
-        public Task<IList<string>> GetWidgetZonesAsync()
-        {
-            //return Task.FromResult<IList<string>>(new List<string> { PublicWidgetZones.OpcContentBefore, AdminWidgetZones.ProductDetailsBlock });
-            return Task.FromResult<IList<string>>(new List<string> { }); 
-            //{ PublicWidgetZones.OpcContentAfter });
-        }
+        //public Task<IList<string>> GetWidgetZonesAsync()
+        //{
+        //    //return Task.FromResult<IList<string>>(new List<string> { PublicWidgetZones.OpcContentBefore, AdminWidgetZones.ProductDetailsBlock });
+        //    return Task.FromResult<IList<string>>(new List<string> { }); 
+        //    //{ PublicWidgetZones.OpcContentAfter });
+        //}
 
-        public string GetWidgetViewComponentName(string widgetZone)
-        {
-            return "TransferNFTWidget";
-        }
+        //public string GetWidgetViewComponentName(string widgetZone)
+        //{
+        //    return "TransferNFTWidget";
+        //}
         #endregion
     }
 }
